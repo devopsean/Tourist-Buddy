@@ -55,7 +55,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
   @override
   void initState() {
- Future.delayed(Duration(seconds: 3));
+
 
     super.initState();
   }

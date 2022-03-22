@@ -55,6 +55,8 @@ class TakePictureScreenState extends State<TakePictureScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<LocationProvider>(context, listen: false);
+ //   provider.getLocation();
     return Scaffold(
       appBar: AppBar(title: const Text('Take a picture')),
       // You must wait until the controller is initialized before displaying the
@@ -70,25 +72,22 @@ class TakePictureScreenState extends State<TakePictureScreen> {
               Positioned(
                   right: 10,
                   bottom: 20,
-                  child: Consumer<LocationProvider>(
-                    builder: (_, provider, __) => Container(
-                      width: MediaQuery.of(context).size.width / 2,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text('Sean Onuoha'),
-                          Text(
-                              'Phone: ${provider.mobileNumber != null ? provider.mobileNumber : 'Number'}'),
-                          Text(
-                              'Time: ${provider.currentTime != null ? provider.currentTime : 'Time'}'),
-                          Text(
-                            'Address: ${provider.address! != null ? provider.address : 'address'}',
-                            softWrap: true,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 5,
-                          )
-                        ],
-                      ),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('Userfirst LastName'),
+                        Text('Phone: ${provider.mobileNumber != null ? provider.mobileNumber : 'phone'}'),
+                        Text(
+                            'Time: ${provider.currentTime != null ? provider.currentTime : 'Time'}'),
+                        Text(
+                          'Address: ${provider.address != null ? provider.address : 'address'}',
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 5,
+                        )
+                      ],
                     ),
                   ))
             ]);
@@ -112,7 +111,8 @@ class TakePictureScreenState extends State<TakePictureScreen> {
             //final image = await _controller.takePicture();
 
             print('check: 0');
-            XFile xfile = await _controller.takePicture();
+            XFile? xfile;
+             xfile = await _controller.takePicture();
             print('check: 1');
             final path = xfile.path;
 
@@ -155,7 +155,8 @@ class TakePictureScreenState extends State<TakePictureScreen> {
           }
         },
         child: const Icon(Icons.camera_alt),
-      ),
+      ),floatingActionButtonLocation:
+      FloatingActionButtonLocation.startFloat,
     );
   }
 }

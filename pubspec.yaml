@@ -47,6 +47,7 @@ dependencies:
   image_gallery_saver: ^1.7.1
   mobile_number: ^1.0.4
   geocoding: ^2.0.4
+  fluttertoast: ^8.0.9
 dev_dependencies:
   flutter_test:
     sdk: flutter
