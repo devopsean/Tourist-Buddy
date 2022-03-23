@@ -11,10 +11,10 @@ import 'package:path_provider/path_provider.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
-import 'package:test_1/picture_screen.dart';
+import 'package:test_1/screens/picture_screen.dart';
 // import 'package:screenshot/screenshot.dart';
-import 'package:test_1/provider.dart';
-import 'package:test_1/take_picture_screen.dart';
+import 'package:test_1/providers/provider.dart';
+import 'package:test_1/screens/take_picture_screen.dart';
 
 Future<void> main() async {
   // Ensure that plugin services are initialized so that `availableCameras()`
